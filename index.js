@@ -23,7 +23,11 @@ app.use(function(req, res, next) {
 
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/WebContent/html/homepage.html'));
+  
+  console.log("index page");
+  res.send("hello world");
+
+  //res.sendFile(path.join(__dirname+'/WebContent/html/homepage.html'));
   //__dirname : It will resolve to your project folder.
 });
 
