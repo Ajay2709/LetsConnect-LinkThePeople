@@ -1,5 +1,4 @@
 var CONSTANTS = require('../utils/constants.js');
-
 module.exports =
 {
         userslogin_db: function(response,res,callback){
@@ -11,13 +10,12 @@ module.exports =
         var password=response.password;
 		var t_response=null;
         MongoClient.connect(url, function(err, db) {
-          if (err) throw err;
-          var myobj = { email:email,password: password };
+        if (err) throw err;
+        var myobj = { email:email,password: password };
 
-          console.log("obj"+JSON.stringify(myobj));
+        //console.log("obj"+JSON.stringify(myobj));
           
-          db.collection("users").findOne(myobj,{_id:false}).toArrayfunction((err, result) {
-            
+        db.collection("users").find(myobj,{_id:false}).toArray(function(err, result) {    
             if (err) 
                 throw err;
 			if(t_response==null){
