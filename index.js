@@ -1,5 +1,8 @@
 var signupform= require('./modules/signupform_db.js');
+var loginform = require('./modules/loginform_db.js');
+
 var express = require('express');
+var constants = require('./utils/constants.js');
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -77,7 +80,31 @@ app.post('/signupUserService', function (req, res) {
    //mongoDB operation//
 
   
-})
+});
+
+
+//login user service
+app.post('/'+constants.USER_LOGIN_AJAX, function (req, res) {
+
+  console.log("loginService")
+
+   var email = req.body.email;
+   var password = req.body.password;
+   var response = {"email":email,"password":password};
+
+   loginform.userslogin_db(response, res,function(result, response1){
+
+        if(result){
+            response1.send({"status":"success"});
+        }
+        else 
+            response1.send({"status":"error"});
+   });
+    
+});
+
+
+
 
 
 //register user

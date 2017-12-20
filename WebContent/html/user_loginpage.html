@@ -2,6 +2,8 @@
 <html style="height: 100%; margin: 0;">
 <link rel="stylesheet" type="text/css" href="../css/style1.css">
 <script src="../JAVASCRIPT/user_loginpage_script.js"> </script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../JAVASCRIPT/loginform_ajax.js"> </script>
 <body style="height: 100%; margin: 0;">
 	<section class="bg_login">
 		<header align="right" style="color:white;font-family: Trebuchet MS;font-size: 250%;background-color:red;">SOCSITE</header>
@@ -11,12 +13,12 @@
 					<section class="container">
 						<label>
 						<b>Email</b><br>
-						<input type="email" placeholder="Enter Email" class="textbox" name="email" >
+						<input id="email" type="email" placeholder="Enter Email" class="textbox" name="email" >
 						<br>
 						</label>
 						<label>
 						<label><b>Password</b></label><br>
-						<input type="password" placeholder="Enter Password" class="textbox" name="psw">
+						<input id="psw" type="password" placeholder="Enter Password" class="textbox" name="psw">
 						<br>
 						<span class="textbox" id="response" style="color:red;font-size:14px;background-color:white;"></span><br>
 					</section>
@@ -24,7 +26,7 @@
 			</section>
 			<section class="clearfix">
 				<button onclick="location.href='main_home_page.html'" class="texbox btn" style="border:0px;text-align:center; position:relative; right:20%; left:40%;">Cancel</button>
-				<button type="button" class="textbox btn" onclick='check();' style="text-align:center;border:0px;position:relative; right:20%; left:40%;">Log In</button>
+				<button type="button" class="textbox btn" onclick='javascript:login();' style="text-align:center;border:0px;position:relative; right:20%; left:40%;">Log In</button>
 			</section>	
 	</section>
 </body>

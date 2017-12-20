@@ -1,3 +1,5 @@
+
+
 function signup(){
 	var email = document.getElementById("email").value;
 	var username = document.getElementById("usrname").value;
@@ -11,7 +13,10 @@ function signup(){
 	type: 'POST',
     data: JSON.stringify(data),
     success: function (data) {
-			window.location = "../html/user_loginpage.html";	
+		
+		//check if the response is success then 
+
+		window.location = "../html/user_loginpage.html";	
 	},
 	error: function(data) {
 		console.log("failure");
