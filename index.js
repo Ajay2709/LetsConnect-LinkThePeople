@@ -1,6 +1,6 @@
 var signupform= require('./modules/signupform_db.js');
 var loginform = require('./modules/loginform_db.js');
-
+var cookieParser = require('cookie-parser');
 var express = require('express');
 var constants = require('./utils/constants.js');
 var bodyParser = require('body-parser');
@@ -11,6 +11,9 @@ var path    = require("path");
 
 app.set('port', (process.env.PORT || 8080));
 
+
+app.use(cookieParser());
+app.use(session({secret: "Shh, its a secret!"}));
 
 app.use(express.static('WebContent'));
 app.use(bodyParser.urlencoded());
