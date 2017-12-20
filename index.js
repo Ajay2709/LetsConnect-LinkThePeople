@@ -41,9 +41,18 @@ app.get('/',function(req,res){
 
 //login page
 app.get('/login', function(req, res) {
-    res.sendFile('WebContent/html/user_loginpage.html', {
-        root: __dirname
-    });
+    if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		console.log("email already in session");
+		res.sendFile('WebContent/html/homepage.html', {
+			root: __dirname
+		});
+	}
+	else{
+		console.log("email not in session");
+		res.sendFile('WebContent/html/user_loginpage.html',{
+			root: __dirname
+		});
+	}
 });
 
 
@@ -97,6 +106,9 @@ app.post('/'+constants.USER_LOGIN_AJAX, function (req, res) {
         if(result.length > 0 ){
 
             var user_email = result[0].email ;
+			
+			req.session.email=user_email;
+			
             console.log("login success : "+user_email);
             
             response1.send({"status":"success"});
@@ -113,17 +125,37 @@ app.post('/'+constants.USER_LOGIN_AJAX, function (req, res) {
 
 //register user
 app.get('/signup', function(req, res) {
-    res.sendFile('WebContent/html/user_signuppage.html', {
-        root: __dirname
-    });
+    if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		console.log("email already in session");
+		res.sendFile('WebContent/html/homepage.html', {
+			root: __dirname
+		});
+	}
+	else{
+		console.log("email not in session");
+		res.sendFile('WebContent/html/user_signuppage.html',{
+			root: __dirname
+		});
+	}
 });
 
 
 //addpost
 app.get('/post', function(req, res) {
-    res.sendFile('WebContent/html/homepage.html', {
-        root: __dirname
-    });
+	
+	//check if email is in session - yes: user already logged in
+	if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		console.log("email already in session");
+		res.sendFile('WebContent/html/homepage.html', {
+			root: __dirname
+		});
+	}
+	else{
+		console.log("email not in session");
+		res.sendFile('WebContent/html/user_loginpage.html',{
+			root: __dirname
+		});
+	}
 });
 
 
