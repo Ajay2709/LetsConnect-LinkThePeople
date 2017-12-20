@@ -44,8 +44,16 @@ app.get('/login', function(req, res) {
 });
 
 
+//edit user details page
+app.get('/editProfile', function(req, res) {
+    res.sendFile('WebContent/html/profileSettings.html', {
+        root: __dirname
+    });
+});
+
+
 //register user
-app.get('/signUp', function(req, res) {
+app.get('/signup', function(req, res) {
     res.sendFile('WebContent/html/user_signuppage.html', {
         root: __dirname
     });
