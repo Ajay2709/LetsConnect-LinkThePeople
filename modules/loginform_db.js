@@ -16,7 +16,7 @@ module.exports =
 
           console.log("obj"+JSON.stringify(myobj));
           
-          db.collection("users").findOne(myobj,{_id:false}),.toArrayfunction((err, result) {
+          db.collection("users").findOne(myobj,{_id:false}).toArrayfunction((err, result) {
             
             if (err) 
                 throw err;
