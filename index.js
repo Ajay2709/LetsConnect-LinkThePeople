@@ -163,6 +163,13 @@ app.get('/post', function(req, res) {
 });
 
 
+//logout
+app.get('/logout',function(req,res){
+	req.session.email=null;
+	res.sendFile('WebContent/html/main_home_page.html',{
+			root: __dirname
+	});
+});
 
 var server = app.listen(app.get('port'), function () {
    var host = server.address().address;
