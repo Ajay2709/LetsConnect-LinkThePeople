@@ -4,7 +4,7 @@ function signup(){
 	var password = document.getElementById("psw").value;
 	data = {"email":email , "username":username , "password":password}
     $.ajax({
-    url: "http://localhost:8080/SignUpUser",
+    url: "signupUserService",
     headers:{ 
         "Content-Type":"application/json"
     },

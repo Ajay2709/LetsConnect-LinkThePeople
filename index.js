@@ -52,6 +52,34 @@ app.get('/editProfile', function(req, res) {
 });
 
 
+
+//signup user service
+
+app.post('/signupUserService', function (req, res) {
+   //console.log("inside-----"+req);
+  // console.log("inside signup"+JSON.stringify(req.body));
+   var email = req.body.email;
+   var username = req.body.username;
+   var password = req.body.password;
+   var response = {"username":username,"password":password,"email":email}
+   
+
+   //mongoDB operation//
+   signupform.usersignup_db(response, res,function(result, response1){
+   
+    if(result){
+      response1.send({"status":"success"});
+    }
+    else 
+      response1.send({"status":"error"});
+     
+   });
+   //mongoDB operation//
+
+  
+})
+
+
 //register user
 app.get('/signup', function(req, res) {
     res.sendFile('WebContent/html/user_signuppage.html', {
