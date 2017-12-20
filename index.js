@@ -5,7 +5,7 @@ var app = express();
 
 var path    = require("path");
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 
 
 app.use(express.static('WebContent'));
