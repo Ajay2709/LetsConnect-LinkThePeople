@@ -4,6 +4,7 @@ var loginform = require('./modules/loginform_db.js');
 var express = require('express');
 var constants = require('./utils/constants.js');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var app = express();
 
 var path    = require("path");
