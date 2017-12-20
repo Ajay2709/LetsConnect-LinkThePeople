@@ -94,7 +94,11 @@ app.post('/'+constants.USER_LOGIN_AJAX, function (req, res) {
 
    loginform.userslogin_db(response, res,function(result, response1){
 
-        if(result){
+        if(result.length > 0 ){
+
+            var user_email = result[0].email ;
+            console.log("login success : "+user_email);
+            
             response1.send({"status":"success"});
         }
         else 

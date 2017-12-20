@@ -12,11 +12,17 @@ function login(){
     type: 'POST',
     data: JSON.stringify(data),
         success: function (data) {
-            window.location = "../html/homepage.html";    
+
+            if(data.status == "success"){
+                window.location = "/post";    
+            }else{
+                Console.log("Password/Email is incorrect");
+            }
+
+
         },
         error: function(data) {
             console.log("failure");
-            alert("Password/Email is incorrect");
         }
 
     });
