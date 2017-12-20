@@ -16,7 +16,7 @@ function signup(){
 		
 		//check if the response is success then 
 
-		window.location = "../html/user_loginpage.html";	
+		window.location = "login";	
 	},
 	error: function(data) {
 		console.log("failure");

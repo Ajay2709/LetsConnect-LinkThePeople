@@ -5,9 +5,10 @@
 	<title>Profile Settings</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="../JAVASCRIPT/ProfileSettingsValidations.js"></script>
+	<script src="../JAVASCRIPT/saveprofilesettings_ajax.js"></script>
 	<link rel="stylesheet" href="../css/style1.css">
 </head>
-<body>
+<body onload="javascript:getUserDetails();">
 	<section>
 	<header>
 		<span style="position:absolute;right:10px"> Webname</span>
@@ -65,7 +66,7 @@
 			<span id="countryError" class="invalidInput"></span>
 			<br>
 			<button class="textbox btn" onclick="location.href='editProfile'">Cancel</button>
-			<button type="button" class="textbox btn" value="Save" onclick='javascript:checkForm();'>Save</button>
+			<button type="button" class="textbox btn" value="Save" onclick='javascript:saveSettings();'>Save</button>
 			
 		</form>
 	</section>
