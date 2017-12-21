@@ -1,7 +1,7 @@
 function saveSettings() {
 	//console.log("saveSettings called");
 	var userdata = {	"email": "",
-						"name" : document.getElementById('name').value,
+						"username" : document.getElementById('username').value,
 						"gender" : document.getElementById('gender').value,
 						"dob" : document.getElementById('dobday').value+"-"+document.getElementById('dobmonth').value+"-"+document.getElementById('dobyear').value,
 						"age" : document.getElementById('age').value,
@@ -33,7 +33,7 @@ function getUserDetails() {
 		type : 'GET',
 		success : function(response){
 		//console.log("return to ajax call success"+userdata);//JSON.stringify(userdata)
-			document.getElementById('name').setAttribute('placeholder',response.username);
+			document.getElementById('username').setAttribute('placeholder',response.username);
 			document.getElementById('age').setAttribute('placeholder',response.age);
 			document.getElementById('city').setAttribute('placeholder',response.city);
 			document.getElementById('country').setAttribute('placeholder',response.country);

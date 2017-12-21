@@ -19,6 +19,7 @@ module.exports =
                 throw err;
 			if(t_response==null){
 				t_response=result;
+				console.log(JSON.stringify(result));
 				callback(result,res);
 			}
             db.close();

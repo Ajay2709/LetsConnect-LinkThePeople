@@ -7,7 +7,7 @@ module.exports={
 	var url = CONSTANTS.MONGODBURL;
 	console.log("email:"+res.email);
 	var Data = {"email" : response.email,
-	"name" : response.name,
+	"username" : response.username,
 	"gender" : response.gender,
 	"age" : response.age,
 	"dob" : response.dob,

@@ -119,7 +119,7 @@ app.post('/saveProfileSettingsService',function(req,res){
 	console.log("now at app.post");
 	if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
 		var response = {"email" : req.session.email,
-					"name" : req.body.name,
+					"username" : req.body.username,
 					"gender" : req.body.gender,
 					"age" : req.body.age,
 					"dob" : req.body.dob,
