@@ -258,7 +258,25 @@ app.get('/getPosts',function(req,res){
 	}
 });
 
-
+//getfriendlist
+app.get('/getFriendListService',function(req,res){
+	console.log("now in getFriendListService");
+	if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		getpostdetails.getFriendList(res,function(result, response1){//edit this line for getting post details
+        if(result.length > 0 ){
+            //req.session.email=user_email;
+            console.log("fetching friendlist details success");
+            response1.send(result);
+        }
+        else 
+            response1.send({"status":"error"});
+   });
+		
+	}
+	else{
+		res.send({"status":"error"});
+	}
+});
 
 //logout
 app.get('/logout',function(req,res){
