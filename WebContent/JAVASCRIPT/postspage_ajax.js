@@ -10,7 +10,7 @@ function getposts(){
 		console.log("return to ajax call success");
 		//console.log(JSON.stringify(response[0]));
 		displayposts(response);
-		getfriendlist();
+		//getfriendlist();
 	},
 	error:function (response) {
 		console.log("return to ajax call failed");
@@ -18,8 +18,16 @@ function getposts(){
 	});
     return false;
 }
-function getfriendlist(){  
+
+function startfetch(){
+	getposts();
+	getUserFriendList();
+}
+function getfriendlist(userFriendList){  
 	console.log("getfriendlist ajax called");
+	
+	
+	
     $.ajax({
     url:'getFriendListService',
     headers:{ 
@@ -29,7 +37,7 @@ function getfriendlist(){
     success: function (response) {
 		console.log("return to getfriendlist ajax call success"+JSON.stringify(response));
 		//console.log(JSON.stringify(response[0]));
-		displayfriendlist(response);
+		displayfriendlist(userFriendList,response);
 	},
 	error:function (response) {
 		console.log("return to getfriendlist ajax call failed"+response);
@@ -50,15 +58,73 @@ function displayposts(posts){
 		$("#postnow").append(newPost);
 	}
 }
-function displayfriendlist(friends){
+function displayfriendlist(userFriendList,friends){
 	$("#friendlist").append("<p class='friendsheader'>Friends</P>");
 	console.log("now in displayfriendlist");
 	for(f in friends){
+		
+		var isNotFriend = "<input type='button' value='addFriend' onclick=''/>"
+		var isFriend = "<div>isFriend</div>";
 		var friendlist ="\
 						<section class='friends'>\
-						<div><b><i>"+friends[f].username+"</b></i>"+" - "+friends[f].email+"</div>\
-						</section>";
+						<div><b><i>"+friends[f].username+"</b></i>"+" -<i> "+friends[f].email+"</i></div>";
+		
+		var isAlreadyFriend = false;
+		
+		
+		if(userFriendList.indexOf(friends[f].email) != -1){
+			isAlreadyFriend = true;
+		}			
+		
+			if(isAlreadyFriend){
+				friendlist = friendlist+isFriend;
+			}else{
+				friendlist = friendlist+isNotFriend;
+			}
+			
+			friendlist = friendlist+"</section>";
+			
 		console.log("email:"+friends[f].email+" username:"+friends[f].username);
 		$("#friendlist").append(friendlist);
 	}
 }
+
+function getUserFriendList() {
+	//console.log("saveSettings called");
+	
+	$.ajax({
+		url : 'getUserDetails',
+		headers : { "Content-Type":"application/json"},
+		type : 'GET',
+		success : function(response){
+			
+			console.log("return to ajax call success"+JSON.stringify(response));
+			
+			
+			
+			var friendListArray = [];
+			
+			if(response != null && response.friends != null && response.friends != undefined){
+				
+				var profilename = response.username;
+				document.getElementById("profilename").innerHTML = profilename;//setAttribute('profilename',profilename);
+				console.log("username:"+profilename);
+				for(friendItem in response.friends){
+					console.log("DEBUG: "+JSON.stringify(response.friends[friendItem]));
+					friendListArray.push(response.friends[friendItem].emailfriend);
+				}
+			}
+			
+			
+			getfriendlist(friendListArray);
+			
+			
+		},
+		error:function(response){
+		//console.log("return to ajax call failure"+JSON.stringify(userdata));//JSON.stringify(userdata)
+	}
+	});
+return false;
+}
+
+

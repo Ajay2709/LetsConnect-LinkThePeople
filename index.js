@@ -145,6 +145,12 @@ app.post('/saveProfileSettingsService',function(req,res){
 });
 
 
+//friendlist 
+var friendlist ;
+
+
+
+
 //get user details
 app.get('/getUserDetails', function(req, res) {
     if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
@@ -154,6 +160,7 @@ app.get('/getUserDetails', function(req, res) {
         if(result.length > 0 ){
             var user_email = result[0].email ;
 			req.session.email=user_email;
+			friendlist=result[0].friends;//new line---------------------
             console.log("login success : "+user_email);
             response1.send(result[0]);
         }
