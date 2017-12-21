@@ -46,12 +46,11 @@ function getfriendlist(userFriendList){
     return false;
 }
 function displayposts(posts){
-	//console.log(JSON.stringify(posts));
+	console.log("now in displayposts");
 	for(p in posts){
 		var newPost = "<section class='postItem'>\
-						<div class='postedby'><b><i>"+posts[p].postedby+"</b></i> posted at "+posts[p].time+"</div><br>\
-						<div class='postcontent'><b><i>"+posts[p].postcontent+"</b></i></div><br><br>\
-						<div class='likes'>"+posts[p].likes+"</div>\
+						<div class='postedby'><b><i>"+posts[p].postedby+"</b></i> posted at "+Date(posts[p].time).toString()+"</div><br>\
+						<div class='postcontent'><b><i>"+posts[p].postcontent+"</b></i></div><br>\
 						<section>";
 						
 		//console.log("newpost"+newPost);
@@ -63,7 +62,9 @@ function displayfriendlist(userFriendList,friends){
 	console.log("now in displayfriendlist");
 	for(f in friends){
 		
-		var isNotFriend = "<input type='button' value='addFriend' onclick=''/>"
+		var data = {"email":'',"nameemail":friends[f].username,"emailfriend":friends[f].email};
+		
+		var isNotFriend = "<input type='button' value='addFriend' onclick='javascript:addFriendFun();'/>"
 		var isFriend = "<div>isFriend</div>";
 		var friendlist ="\
 						<section class='friends'>\

@@ -301,3 +301,24 @@ var server = app.listen(app.get('port'), function () {
    console.log("Example app listening at http://%s:%s", host, port);
 });
 
+//add friends from the email fetched
+
+var addfriendcheck=require('./modules/addfriend_db.js');
+app.post('/addFriendsService',function(req,res){
+	if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		console.log("addFiends called");
+		var response = {"email": req.session.email,"nameemail":req.body.nameemail,"emailfriend":req.body.emailfriend};
+		addfriendcheck.addfrienddb(response,res,function(result, response1){//edit this line for getting post details
+        if(result){
+				response1.send({"status":"success"});
+			}
+			else {
+				response1.send({"status":"failure"});
+			}
+   });
+		
+	}
+	else{
+		res.send({"status":"error"});
+	}
+});

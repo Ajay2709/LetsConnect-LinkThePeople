@@ -1,0 +1,70 @@
+.top_header{
+    background: pink;
+    text-align: right;
+    font-size:200%;
+    color:red;
+    
+}
+
+.top_header .header_text{
+    font-size:200%;
+    color:red;
+    font-weight:bold;
+}
+
+.login_button{
+  display: inline-block;
+  border-radius: 33px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.signup_button{
+  display: inline-block;
+  border-radius: 33px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.signup_button:hover{
+     background-color: #7041e1;
+     color: white
+}
+.login_button:hover{
+     background-color: #7041e1;
+     color: white
+}
+.cancel_button{
+  display: inline-block;
+  border-radius: 33px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.cancel_button:hover{
+  background-color: #7041e1;
+  color: white
+}

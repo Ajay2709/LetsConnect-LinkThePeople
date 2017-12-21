@@ -14,7 +14,7 @@ module.exports =
 
         //console.log("obj"+JSON.stringify(myobj));
           
-        db.collection("posts").find({},{_id:false}).toArray(function(err, result) {    
+        db.collection("posts").find({},{_id:false}).sort({"time":-1}).toArray(function(err, result) {    
             if (err) 
                 throw err;
 			if(t_response==null){
