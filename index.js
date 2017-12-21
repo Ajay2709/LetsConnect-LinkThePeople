@@ -218,3 +218,37 @@ var server = app.listen(app.get('port'), function () {
    
    console.log("Example app listening at http://%s:%s", host, port);
 });
+
+//post the content in text
+
+var postcheck=require('./modules/post_db.js');
+
+app.post('/postService', function (req, res) {
+   //console.log("inside-----"+req);
+  // console.log("inside signup"+JSON.stringify(req.body));
+    if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+	   var postcontent = req.body.postcontent;
+	   var postedby = req.body.postedby;
+	   var likes = req.body.likes;
+	   var time = req.body.time;
+	   var response = {"postcontent":postcontent , "postedby":postedby , "likes":likes , "time":time}
+	   //mongoDB operation//
+	   postcheck.postdb(response, res,function(result, response1){
+		if(result){
+		  response1.send({"status":"success"});
+		}
+		else 
+		  response1.send({"status":"error"});
+		 
+	   });
+	}
+   //mongoDB operation//
+   else{
+		console.log("email not in session");
+		res.sendFile('WebContent/html/user_loginpage.html',{
+			root: __dirname
+		});
+	}
+
+  
+});

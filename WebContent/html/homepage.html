@@ -4,7 +4,9 @@
 <head>
 	<title>Let'sConnect</title>
 	<link rel="stylesheet" type="text/css" href="../css/style1.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="../JAVASCRIPT/ProfileSettingsValidations.js"></script>
+	<script src="../JAVASCRIPT/post_ajax.js"></script>
 </head>
 <body>
 	<section>
@@ -24,10 +26,17 @@
 		</span>
 		<br>
 	</section>
-	<section id="postnow">
-		<button class="textbox btn" onclick="getPostImage();">Post</button> 
-	</section>
+	<br>
 	<section>
+		<span>
+			<input type="text" id="textpost" class="textbox" style="width:500px;height:90px;position:absolute;left:220px;top:60px" placeholder="Post the details here">
+		</span>
+	</section>
+	<br><br><br>
+	<section id="postnow">
+		<button  class="textbox btn" style="margin:auto; display:block" onclick="javascript:post();">Post</button> 
+	</section>
+	<!--<section>
 		<article class="posts">
 			<p style="font-size:20px;">PostedByUser</p>
 			<p id="demo"></p>
@@ -36,7 +45,7 @@
 				<img  id="likebutton" src="../IMAGES/like1.png" style="width:30px;height:30px;position:relative;left:0px" >
 			</button>
 		</article>
-	</section>
+	</section>-->
 	<section>
 		<header class="friendstab" style="font-size:30px">
 <p style="text-align:left;color:black;margin:0px;">Friends</P></header>
