@@ -44,10 +44,11 @@ module.exports =
         //console.log("obj"+JSON.stringify(myobj));
           
         db.collection("users").find({},{_id:false}).toArray(function(err, result) {  
-			if (err) 
+				
+            if (err) 
                 throw err;
-			if(result.length!=0){//
-				result=result[0].friends;
+			if(t_response==null){
+				t_response=result;
 				console.log(JSON.stringify(result));
 				callback(result,res);
 			}
