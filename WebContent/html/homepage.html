@@ -6,9 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/style1.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="../JAVASCRIPT/ProfileSettingsValidations.js"></script>
+	<script src="../JAVASCRIPT/postspage_ajax.js"></script>
 	<script src="../JAVASCRIPT/post_ajax.js"></script>
 </head>
-<body>
+<body onload="javascript:getposts()">
 	<section>
 		<header>
 			<span style="position:absolute;right:10px">Let'sConnect</span>
@@ -36,16 +37,7 @@
 	<section id="postnow">
 		<button  class="textbox btn" style="margin:auto; display:block" onclick="javascript:post();">Post</button> 
 	</section>
-	<!--<section>
-		<article class="posts">
-			<p style="font-size:20px;">PostedByUser</p>
-			<p id="demo"></p>
-			<script>var d = new Date("25 Mar 2015").toDateString();document.getElementById("demo").innerHTML = d;</script>
-			<button class="likebtn"  style="background:white;position:absolute;bottom:0px;border:0px" onclick="likePost();">
-				<img  id="likebutton" src="../IMAGES/like1.png" style="width:30px;height:30px;position:relative;left:0px" >
-			</button>
-		</article>
-	</section>-->
+	
 	<section>
 		<header class="friendstab" style="font-size:30px">
 <p style="text-align:left;color:black;margin:0px;">Friends</P></header>

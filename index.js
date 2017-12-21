@@ -2,6 +2,7 @@ var signupform= require('./modules/signupform_db.js');
 var loginform = require('./modules/loginform_db.js');
 var update = require('./modules/updateprofilesettings_db.js');
 var getuser = require('./modules/getuserdetails_db.js');
+var getpostdetails=require('./modules/getpostdetails_db.js');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var constants = require('./utils/constants.js');
@@ -184,7 +185,7 @@ app.get('/signup', function(req, res) {
 });
 
 
-//addpost
+//posts page
 app.get('/post', function(req, res) {
 	
 	//check if email is in session - yes: user already logged in
@@ -200,23 +201,6 @@ app.get('/post', function(req, res) {
 			root: __dirname
 		});
 	}
-});
-
-
-//logout
-app.get('/logout',function(req,res){
-	req.session.email=null;
-	res.sendFile('WebContent/html/main_home_page.html',{
-			root: __dirname
-	});
-});
-
-
-var server = app.listen(app.get('port'), function () {
-   var host = server.address().address;
-   var port = server.address().port;
-   
-   console.log("Example app listening at http://%s:%s", host, port);
 });
 
 //post the content in text
@@ -252,3 +236,43 @@ app.post('/postService', function (req, res) {
 
   
 });
+
+//get posts 
+app.get('/getPosts',function(req,res){
+	if(req.session.email != null && req.session.email != undefined && req.session.email != ''){
+		console.log("getPosts called");
+		//var userData = {"email": req.session.email};
+		getpostdetails.getPostDetails(res,function(result, response1){//edit this line for getting post details
+        if(result.length > 0 ){
+            //req.session.email=user_email;
+            console.log("fetching post details success");
+            response1.send(result);
+        }
+        else 
+            response1.send({"status":"error"});
+   });
+		
+	}
+	else{
+		res.send({"status":"error"});
+	}
+});
+
+
+
+//logout
+app.get('/logout',function(req,res){
+	req.session.email=null;
+	res.sendFile('WebContent/html/main_home_page.html',{
+			root: __dirname
+	});
+});
+
+
+var server = app.listen(app.get('port'), function () {
+   var host = server.address().address;
+   var port = server.address().port;
+   
+   console.log("Example app listening at http://%s:%s", host, port);
+});
+
