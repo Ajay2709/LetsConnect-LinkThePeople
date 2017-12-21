@@ -16,7 +16,7 @@ function login(){
             if(data.status == "success"){
                 window.location = "/post";    
             }else{
-                console.log("Password/Email is incorrect");
+                document.getElementById("response").innerHTML="Password/Email is incorrect";
             }
 
 
