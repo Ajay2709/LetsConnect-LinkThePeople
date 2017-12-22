@@ -1,17 +1,23 @@
-		body{ font-family:Trebuchet MS;}
+		body{ 
+		font-family:Trebuchet MS;
+		background: #EFEBE9;
+		}
 		header{ 
-			background:#ef800df7;
+			background:#795548;
 			font-family:Trebuchet MS;
 			color:white;font-size:40px;
-			height:40px;text-align:right;
+			height:60px;
+			width: 100%;text-align:right;
 			padding:10px 10px;margin:0px;
+			position:fixed;top:0px;left:0;
+			z-index: 2;
 		}
 		.textbox{
 			border:5px;border-radius:5px;
 			margin:10px;padding:5px;
 			width:300px;height:30px;
 			font-size:15px;
-			background-color:rgb(240, 240, 240);
+			background:#D7CCC8;
 		}
 		.home{
 			border:#ef800df7;border-radius:5px;
@@ -21,15 +27,19 @@
 			position:absolute;
 			top:25px;left:10px;
 		}
+		.homebtn{
+			width:40px;height:30px;position:absolute;right:250px;top:25px;
+		}
 		.btn{
 			border-radius:5px;
 			width:100px;height:30px;
 			font-size:20px;
+			background:white;
 		}
 		.btn:hover{
 			border-radius:5px;
-			background-color:#ef800df7;
-			border:#ef800df7;
+			background:#795548;
+			border:#D7CCC8;
 			color:white;
 		}
 		.textbox:hover{
@@ -37,21 +47,35 @@
 			box-shadow:2px 2px 2px;
 			border:5px #ef800df7;
 		}
+		.checkvals{
+			color:red;font-size:14px;background-color:white;
+		}
 		.homebtn:hover{
 			border:#ef800df7;border-radius:5px;
 			background-color:white;
-			color:#ef800df7;
+			color:;
+			
+		}
+		.postnow{
+			width:780px;height:90px;position:absolute;left:80px;top:100px;padding:10px;font-size:20px;background:#D7CCC8;
 		}
 		.logoutbtn{
-			border:#ef800df7;border-radius:5px;
-			background-color:#ef800df7;
 			width:100px;height:40px;
 			font-size:20px;color:white;
+			background:#795548;border:none;
+			
+		}
+		.postbtn{
+			width:100px;height:40px;
+			font-size:20px;color:white;
+			background:#795548;border:none;
+			position:absolute;top:200px;left:400px;
+			
 		}
 		.logoutbtn:hover{
-			border:#ef800df7;border-radius:5px;
+			border:#795548;border-radius:5px;
 			background-color:white;
-			color:#ef800df7;
+			color:#795548;;
 		}
 		.likebtn{
 			border-radius:5px;
@@ -73,26 +97,21 @@
 		.clear{
 			clear:both;
 		}
-		.posts{
-			width:700px;height:500px;
-			border:2px;border-radius:3px;
-			box-shadow:3px 3px 3px 3px lightgray;
-			position:relative;
-			top:20px;left:70px;
-		}
 		.postItem{
 			width:700px;margin:50px 50px 50px 20px;padding:30px;
-			border:2px #ef800df7;border-radius:3px;
+			border:2px #ef800df7;border-radius:15px;
 			box-shadow:3px 3px 3px 3px lightgray;
+			background:#D7CCC8; 
 			position:relative;
-			top:20px;left:70px;
+			color:#795548;
+			top:100px;left:70px;
 		}
 		.friends{
 			font-size:20px;padding:10px;
 		}
 		.friendsheader{
 			text-align:left;
-			background:#ef800df7;
+			background:#795548;
 			margin:0px;padding:10px;
 			width:280px;height:40px;
 			font-size:35px;color:white;
@@ -106,8 +125,9 @@
 			background-size: cover;
 		}
 		.friendstab{
-			background-color:rgb(300,300,300);
+			background:#D7CCC8;
 			width:300px;
 			border:4px #ef800df7;border-radius:15px;
 			position:absolute;
-			top:70px;right:5px;"
+			top:100px;right:10px;
+		}

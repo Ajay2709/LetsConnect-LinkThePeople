@@ -10,30 +10,29 @@
 	<script src="../JAVASCRIPT/post_ajax.js"></script>
 	<script src="../JAVASCRIPT/addfriend_ajax.js"></script>
 </head>
-<body onload="javascript:startfetch()">
+<body onload="javascript:startfetch()" class="bkg" >
 	<section>
 		<header>
-			<span style="position:absolute;right:10px">Let'sConnect</span>
 			<span>
-				<button type="button" id="logoutbutton" class="logoutbtn" style="position:absolute;right:250px;top:25px" onclick="location.href='logout'">Log Out</button>
+				<button type="button" id="logoutbutton" class="logoutbtn" style="position:absolute;left:25px;top:25px" onclick="location.href='logout'">Log Out</button>
 			</span>
+			<span>
+				<button class="logoutbtn" style="width:200px;" type="button" onclick="location.href='editProfile'"><span id="profilename">ProfileName</span></button>
+			</span>
+			<span align="right" style="margin:20px">Let'sConnect</span>
 		</header>
-		<span>
-			<button class="home homebtn" style="width:200px;" type="button" onclick="location.href='editProfile'">
-				<img src="../IMAGES/dpsample.jpg" width="40px" height="30px" align="left"><span id="profilename">ProfileName</span>
-			</button>
-		</span>
+		
 		<br>
 	</section>
 	<br>
 	<section>
-		<span>
-			<input type="text" id="textpost" class="textbox" style="width:780px;height:90px;position:absolute;left:80px;top:60px;padding:10px;font-size:20px" placeholder="Post your message here">
-		</span>
+		
+			<input type="text" id="textpost" class="textbox postnow" placeholder="Post your message here">
+			<button  class="postbtn"  onclick="javascript:post();">Post</button> 
+		
 	</section>
 	<br><br><br>
 	<section id="postnow">
-		<button  class="textbox btn" style="margin:auto;display:block;position:absolute;left:400px;top:170px" onclick="javascript:post();">Post</button> 
 	</section>
 	<section class="friendstab" id="friendlist" style="font-size:30px"></section>
 </body>

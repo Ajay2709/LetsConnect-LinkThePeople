@@ -16,7 +16,7 @@ function saveSettings() {
 		data : JSON.stringify(userdata),
 		success : function(userdata){
 		//console.log("return to ajax call success"+userdata);//JSON.stringify(userdata)
-		
+			location.reload();
 		},
 		error:function(userdata){
 		//console.log("return to ajax call failure"+JSON.stringify(userdata));//JSON.stringify(userdata)
