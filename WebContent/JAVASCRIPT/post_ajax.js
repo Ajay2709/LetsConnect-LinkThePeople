@@ -1,4 +1,5 @@
 function post(){
+	console.log("now in post ajax");
 	var postcontent = document.getElementById("textpost").value;
 	var postedby = "4";
 	var likes = "4";
@@ -16,10 +17,11 @@ function post(){
     success: function (data) {
 		//check if the response is success then 
 		//window.location = "login";
-		console.log("success in Ajax");
+		console.log("success in post ajax");
+		location.reload();
 	},
 	error: function(data) {
-		console.log("failure in Ajax");
+		console.log("failure in post ajax");
     }
 
 	});

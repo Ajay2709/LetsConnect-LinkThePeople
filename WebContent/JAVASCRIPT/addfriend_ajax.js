@@ -1,9 +1,9 @@
-function addFriendFun(){
+function addFriendFun(data){
 	var email = "";
-	var nameemail = "ajay";
-	var emailfriend = "ajaynba001@gmail.com";
-	data = {"email":email,"nameemail":nameemail,email,"emailfriend":emailfriend};
-	console.log(JSON.stringify(data));
+	var friendname = data.name;
+	var friendemail = data.email;
+	data = {"email":email,"friendname":friendname,"friendemail":friendemail};
+	console.log("in addfriend ajax"+JSON.stringify(data));
     $.ajax({
     url: "addFriendsService",
     headers:{ 

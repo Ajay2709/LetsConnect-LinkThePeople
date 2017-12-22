@@ -62,9 +62,10 @@ function displayfriendlist(userFriendList,friends){
 	console.log("now in displayfriendlist");
 	for(f in friends){
 		
-		var data = {"email":'',"nameemail":friends[f].username,"emailfriend":friends[f].email};
+		var data = {"email":'',"friendname":friends[f].username,"friendemail":friends[f].email};
+		//data = JSON.parse(data);
 		
-		var isNotFriend = "<input type='button' value='addFriend' onclick='javascript:addFriendFun();'/>"
+	var isNotFriend = "<input type='button' value='addFriend' onclick='javascript:addFriendFun("+data+");'/>"
 		var isFriend = "<div>isFriend</div>";
 		var friendlist ="\
 						<section class='friends'>\

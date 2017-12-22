@@ -6,11 +6,11 @@ module.exports =
 		var MongoClient = require('mongodb').MongoClient;
 		var url = 'mongodb://balaji:balaji@ds161136.mlab.com:61136/socsite';
 		var email=response.email;
-		var nameemail= response.nameemail;
-		var emailfriend=response.emailfriend;
+		var friendname= response.friendname;
+		var friendemail=response.friendemail;
 		MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
-		  var myobj = { "nameemail":nameemail,"emailfriend":emailfriend};
+		  var myobj = { "friendname":friendname,"friendemail":friendemail};
 		  //console.log("obj"+JSON.stringify(myobj));
 		  db.collection("users").update({"email":email},{"$push":{"friends":{"$each":[myobj]}}} ,function(err, result) {
 			if (err) throw err;
