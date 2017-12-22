@@ -10,14 +10,18 @@
 </head>
 <body onload="javascript:getUserDetails();">
 	<section>
-	<header>Let'sConnect 	</header>
-	<button class="home homebtn" onclick="location.href='post'">Home</button>
-	<br>
+	<header>
+		<span>
+		<button class="logoutbtn" style="width:200px;position:absolute;left:25px;top:25px" type="button" onclick="location.href='post'">Home</button>
+		</span>
+		<span align="right" style="margin:20px">Let'sConnect</span>
+	</header>
+	<br><br><br><br>
 	</section>
 	<section><center>
 		<form name="form1">
 			<span>Name</span>
-			<input class="textbox" type="text" placeholder="Your Name" id="username" onblur="checkName();">
+			<input class="textbox" type="text" placeholder="Your Name" id="username" onblur="checkName();" required>
 			<span id="nameError" class="invalidInput"></span>
 			<select class="textbox" style="width:100px" id="gender">
 				<option value="Male">Male</option>
@@ -29,34 +33,34 @@
 				<span align="left">Date of Birth</span>
 				<!--<input class="textbox" type="" max="2017-12-01"  min="1850-01-01" id="bdate" placeholder="yyyy-mm-dd">-->
 				<span>
-					<input type="number" class="textbox" style="width:100px;" min="1" max="31" placeholder="15" id="dobday">
+					<input type="number" class="textbox" style="width:100px;" min="1" max="31" placeholder="15" id="dobday" required>
 				</span>
 				<span>
-					<select class="textbox" style="width:100px;" id="dobmonth">
-						<option value="Jan">January</option><option value="Feb">February</option><option value="Mar">March</option>
-						<option value="Apr">April</option><option value="May">May</option><option value="Jun">June</option>
-						<option value="Jul">July</option><option value="Aug">August</option><option value="Sep">September</option>
-						<option value="Oct">October</option><option value="Nov">November</option><option value="Dec">December</option>
+					<select class="textbox" style="width:100px;" id="dobmonth" required>
+						<option value="January">January</option><option value="February">February</option><option value="March">March</option>
+						<option value="April">April</option><option value="May">May</option><option value="June">June</option>
+						<option value="July">July</option><option value="August">August</option><option value="September">September</option>
+						<option value="October">October</option><option value="November">November</option><option value="December">December</option>
 				</span>
 				<span>
-					<input type="number" class="textbox" style="width:100px;" min="1900" max="2018" placeholder="1990" id="dobyear">
+					<input type="number" class="textbox" style="width:100px;" min="1900" max="2018" placeholder="1990" id="dobyear" required>
 				</span>
 				<span id="dobError" class="invalidInput"></span>
 			</section>
 			<span align="left">Age</span>
-			<input class="textbox" type="number" id="age" min="1" max="120" onblur="checkAge();checkGender();" placeholder="Your Age">
+			<input class="textbox" type="number" id="age" min="1" max="120" onblur="checkAge();checkGender();" placeholder="Your Age" required>
 			<span id="ageError" class="invalidInput"></span>
 			<br>
 			<span  align="left">City</span>
-			<input class="textbox" type="text" id= "city" placeholder="Your City">
+			<input class="textbox" type="text" id= "city" placeholder="Your City" required>
 			<span id="cityError" class="invalidInput"></span>
 			<br>
-			<span>Nationality</span>
-			<input class="textbox" type="text" id="country" onblur="checkPlace();" placeholder="Your Country">
+			<span>Country</span>
+			<input class="textbox" type="text" id="country" onblur="checkPlace();" placeholder="Your Country" required>
 			<span id="countryError" class="invalidInput"></span>
 			<br>
-			<button class="textbox btn" onclick="location.href='editProfile'">Cancel</button>
-			<button type="button" class="textbox btn" value="Save" onclick='javascript:saveSettings();'>Save</button>
+			<button class="btn" onclick="location.href='editProfile'">Cancel</button>
+			<button type="button" class="btn" value="Save" onclick='javascript:saveSettings();'>Save</button>
 			
 		</form></center>
 	</section>

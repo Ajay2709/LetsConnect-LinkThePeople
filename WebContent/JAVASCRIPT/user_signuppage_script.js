@@ -3,7 +3,7 @@ var check = function() {
     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
     if (!filter.test(email.value)) {
-		document.getElementById("emailval").innerHTML="this is invalid email";
+		document.getElementById("emailval").innerHTML="This email is invalid ";
 		//exit();
 	}
 	else{
@@ -18,11 +18,11 @@ var checkuser = function(){
 	}	
 	else 
 	{  
-		document.getElementById("userval").innerHTML="this is invalid name";
+		document.getElementById("userval").innerHTML="This name is invalid";
 		//exit()
 	}
-	if(document.getElementById('usrname').value.length <10){
-		document.getElementById("userval").innerHTML="Username be 10 characters";
+	if(document.getElementById('usrname').value.length < 8 ){
+		document.getElementById("userval").innerHTML="Username must be 8 characters long ";
 		//exit()
 	}
 	else{
@@ -33,7 +33,7 @@ var checkuser = function(){
 var checkpsw = function(){
 	var passw=  /^[A-Za-z]\w{7,14}$/; 
 	if(document.getElementById('psw').value.length <8){
-		document.getElementById("pswval").innerHTML="Password be 10 characters";
+		document.getElementById("pswval").innerHTML="Password must be 8 characters long";
 		//exit()
 	}
 	else{
@@ -46,14 +46,14 @@ var checkpsw = function(){
 	}  
 	else  
 	{   
-		document.getElementById("pswval").innerHTML="Password not be only special characters and first character must be a alphabet";  
+		document.getElementById("pswval").innerHTML="First character must be an alphabet";  
 		//exit()
 	}  
 }
 var checkpswr = function(){
 	if (document.getElementById('psw').value !=
 		document.getElementById('psw-repeat').value) {
-		document.getElementById("psw-repeatval").innerHTML="Passwords are not matching!";
+		document.getElementById("psw-repeatval").innerHTML="Passwords do not match!";
 		//exit()
 	}
 	else{
